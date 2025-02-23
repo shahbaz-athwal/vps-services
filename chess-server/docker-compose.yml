@@ -1,0 +1,23 @@
+services:
+  app:
+    container_name: chess-server
+    build:
+      context: .
+      dockerfile: Dockerfile
+      cache_from:
+        - node:18-alpine
+    environment:
+      - PORT=4000
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.nginx.rule=Host(`chess-server.shahcodes.in`)"
+      - "traefik.http.routers.nginx.entrypoints=websecure"
+      - "traefik.http.routers.nginx.tls=true"
+      - "traefik.http.routers.nginx.tls.certresolver=myresolver"
+    networks:
+      - traefik
+    restart: always
+
+networks:
+  traefik:
+    external: true
