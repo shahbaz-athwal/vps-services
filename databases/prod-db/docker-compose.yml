@@ -1,0 +1,22 @@
+services:
+  postgres:
+    container_name: prod-db
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data_prod_db:/var/lib/postgresql/data
+    restart: always
+    networks:
+      - db-prod
+
+volumes:
+  postgres_data_prod_db:
+
+networks:
+  db-prod:
+    external: true
