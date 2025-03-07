@@ -2,3 +2,4 @@ traefik/acme.json
 databases/.gitignore
 github-stats/.env
 capstone-backend/.env.prod
+dryft-backend/.env.prod
