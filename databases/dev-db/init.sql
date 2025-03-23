@@ -1,5 +1,5 @@
 -- Create users with different passwords
-CREATE USER study_link_owner WITH PASSWORD '';
+CREATE USER "study-link-owner"WITH PASSWORD '';
 CREATE USER whisperella_owner WITH PASSWORD '';
 CREATE USER capstone_owner WITH PASSWORD '';
 -- Create databases if they don't exist
@@ -10,16 +10,16 @@ CREATE DATABASE "capstone";
 -- Grant privileges to users on their respective databases
 
 -- psql -U postgres -h localhost -p 5432 -d study-link
-ALTER DATABASE study-link OWNER TO study_link_owner;
-ALTER SCHEMA public OWNER TO study_link_owner;
-GRANT ALL ON SCHEMA public TO study_link_owner;
-GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO study_link_owner;
-ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON TABLES TO study_link_owner;
-GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO study_link_owner;
-ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON SEQUENCES TO study_link_owner;
-GRANT ALL PRIVILEGES ON ALL FUNCTIONS IN SCHEMA public TO study_link_owner;
-ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON FUNCTIONS TO study_link_owner;
-GRANT CREATE, USAGE ON SCHEMA public TO study_link_owner;
+ALTER DATABASE "study-link" OWNER TO "study-link-owner";
+ALTER SCHEMA public OWNER TO "study-link-owner";
+GRANT ALL ON SCHEMA public TO "study-link-owner";
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO "study-link-owner";
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON TABLES TO "study-link-owner";
+GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO "study-link-owner";
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON SEQUENCES TO "study-link-owner";
+GRANT ALL PRIVILEGES ON ALL FUNCTIONS IN SCHEMA public TO "study-link-owner";
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON FUNCTIONS TO "study-link-owner";
+GRANT CREATE, USAGE ON SCHEMA public TO "study-link-owner";
 
 
 -- psql -U postgres -h localhost -p 5432 -d whisperella
