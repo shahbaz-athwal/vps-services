@@ -2,6 +2,8 @@ version: "3"
 services:
   watchtower:
     container_name: watchtower
+    env_file:
+      - .env
     image: containrrr/watchtower
     restart: always
     command: 
