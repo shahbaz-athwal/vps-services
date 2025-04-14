@@ -10,10 +10,11 @@ services:
       - traefik
     labels:
       - "traefik.enable=true"
+      - "traefik.docker.network=traefik"
       - "traefik.http.routers.portainer.rule=Host(`portainer.shahcodes.in`)"
       - "traefik.http.routers.portainer.entrypoints=websecure"
       - "traefik.http.routers.portainer.tls=true"
-      - "traefik.http.routers.portainer.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.portainer.tls.certresolver=myresolver"
       - "traefik.http.services.portainer.loadbalancer.server.port=9000"
 
 volumes:
