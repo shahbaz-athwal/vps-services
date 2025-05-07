@@ -1,0 +1,27 @@
+services:
+  study-link-api:
+    container_name: study-link-api
+    image: ghcr.io/shahbaz-athwal/study-link-api:latest
+    env_file:
+      - .env
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik"
+      - "traefik.http.routers.study-link-api.rule=Host(`study-link.dryft.ca`)"
+      - "traefik.http.routers.study-link-api.entrypoints=websecure"
+      - "traefik.http.routers.study-link-api.tls=true"
+      - "traefik.http.routers.study-link-api.tls.certresolver=myresolver"
+      - "com.centurylinklabs.watchtower.enable=true"
+    networks:
+      - traefik
+      - db-dev
+      - monitoring
+    restart: always
+
+networks:
+  traefik:
+    external: true
+  db-dev:
+    external: true
+  monitoring:
+    external: true
