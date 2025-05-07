@@ -1,0 +1,10 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: "study-link-api"
+    static_configs:
+      - targets: ["study-link-api:4000"]
+  - job_name: "node-exporter"
+    static_configs:
+      - targets: ["node-exporter:9100"]
