@@ -1,6 +1,3 @@
 traefik/acme.json
-databases/.gitignore
-github-stats/.env
-capstone-backend/.env.prod
-dryft-backend/.env.prod
-watchtower/.env
+*.env
+*.env.prod
