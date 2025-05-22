@@ -18,6 +18,24 @@ services:
       - monitoring
     restart: always
 
+  study-link-zero-sync:
+    container_name: study-link-zero-syncer
+    image: ghcr.io/shahbaz-athwal/study-link-zero-syncer:latest
+    env_file:
+      - .env
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik"
+      - "traefik.http.routers.study-link-zero-syncer.rule=Host(`sl-zero-sync.dryft.ca`)"
+      - "traefik.http.routers.study-link-zero-syncer.entrypoints=websecure"
+      - "traefik.http.routers.study-link-zero-syncer.tls=true"
+      - "traefik.http.routers.study-link-zero-syncer.tls.certresolver=myresolver"
+      - "com.centurylinklabs.watchtower.enable=true"
+    networks:
+      - traefik
+      - db-dev
+    restart: always
+
 networks:
   traefik:
     external: true
