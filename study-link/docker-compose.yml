@@ -7,7 +7,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=traefik"
-      - "traefik.http.routers.study-link-api.rule=Host(`study-link.dryft.ca`)"
+      - "traefik.http.routers.study-link-api.rule=Host(`sl-api.shahcodes.in`)"
       - "traefik.http.routers.study-link-api.entrypoints=websecure"
       - "traefik.http.routers.study-link-api.tls=true"
       - "traefik.http.routers.study-link-api.tls.certresolver=myresolver"
@@ -26,7 +26,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=traefik"
-      - "traefik.http.routers.study-link-zero-syncer.rule=Host(`sl-zero-sync.dryft.ca`)"
+      - "traefik.http.routers.study-link-zero-syncer.rule=Host(`sl-zero.shahcodes.in`)"
       - "traefik.http.routers.study-link-zero-syncer.entrypoints=websecure"
       - "traefik.http.routers.study-link-zero-syncer.tls=true"
       - "traefik.http.routers.study-link-zero-syncer.tls.certresolver=myresolver"
@@ -35,6 +35,11 @@ services:
       - traefik
       - db-dev
     restart: always
+    volumes:
+      - zero-data:/tmp/
+
+volumes:
+  zero-data:
 
 networks:
   traefik:
