@@ -8,14 +8,14 @@
 
 ## VPS Specifications
 
-- VPS Provider: Hostinger
+- VPS: Hostinger [KVM 2](https://www.hostinger.com/vps-hosting)
 - 2 CPU Core
 - 8GB RAM
-- 100GB Storage
+- 100GB NVMe Storage
 
 ## Core Services
 
 - **Traefik** - Reverse proxy with Let's Encrypt TLS
 - **Portainer** - Container management
 - **Watchtower** - Automatic container updates
-- **Databases** - PostgreSQL databases with separate dev and prod environments
+- **Databases** - Postgres 16 databases with separate dev and prod environments
